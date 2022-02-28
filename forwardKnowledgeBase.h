@@ -10,28 +10,33 @@ using namespace std;
 
 class ForwardChain {
    public:
-    vector<string> clause_variable_list = {"High blood pressure and progression of disease",
-                                           "Fluid Collection",
+    vector<string> clause_variable_list = {"Unconsciousness",
+                                           "Infection",
                                            "Inflammation",
-                                           "Poor blood circulation",
-                                           "Narrow blood vessels and chest pain",
-                                           "Elevated Cholesterol",
-                                           "Blood Clotting",
-                                           "Increased Heart Rate",
-                                           "Blockage in blood vessels"};
+                                           "Low O2 Level",
+                                           "Dehydration",
+                                           "Restlessness",
+                                           "Hallucinations",
+                                           "Intense Pain",
+                                           "Internal Inflammation"};
 
-    vector<string> treatment_list = {"ACE INHIBITOR / ARB BLOCKERS",
-                                     "DIURETICS / ALDOSTERONE ANTAGONISTS",
-                                     "CORTICOSTEROIDS",
-                                     "ACE INHIBITOR/ ANGIOTENSIN II RECEPTOR BLOCKERS",
-                                     "NITRATES",
-                                     "STATIN",
-                                     "VAGAL MANEUVER",
-                                     "CLOT PREVENTING DRUGS ( CLOPIDOGREL, TICAGRELOR)/ ASPIRIN",
-                                     "ANTI-ARRYTHMIC DRUGS",
-                                     "NITRATES/ OPEN HEART SURGERY"};
+    vector<string> treatment_list = {
+        "Perform cardiopulmonary resuscitation (CPR) if necessary",
+        "Oral antibiotics are usually recommended for infection",
+        "Washing wound with cold water."
+        "IV fluids, Oxygen, Stomach pumping, Blood filtration",
+        "Intravenous fluids (if severely dehydrated) "
+        "Sedation",
+        "Benzodiazepines may be used for panic attacks, hallucinations, and seizures",
+        "Pain Killers"
+        "Potassium iodide, Prussian blue can be used "};
 
-    vector<string> diagnosis_list = {"Heart Failure", "Cardiomyopathy", "Angina", "Coronary Artery Disease", "Tachycardia", "Ventricular Tachycardia"};
+    vector<string> diagnosis_list = {"Stingray venom Poisoning",
+                                     "Alcohol Poisoning",
+                                     "Venomous ticks Poisoning",
+                                     "Psilocybin mushroom Poisoning",
+                                     "Carbon monoxide Poisoning",
+                                     "Radiation Poisoning"};
 
     vector<pair<string, string>> variable_initialized_list = variable_initializer(clause_variable_list);
 
@@ -51,8 +56,20 @@ class ForwardChain {
     vector<pair<int, vector<int>>> diagnosis_ailment = {
         {0, {0, 1}}, {1, {2, 3}}, {2, {4, 5, 6}}, {3, {0, 6}}, {4, {6, 7}}, {7, {7, 8}}};
 
-    vector<vector<string>> ailment_condition = {{"HIGH", "COLLECTED"}, {"INFLAMED", "REDUCED"}, {"NARROWED", "ELEVATED", "CLOT"}, {"HIGH", "CLOT"}, {"INCREASED", "CLOT"}, {"INCREASED", "BLOCKAGE"}};
+    vector<vector<string>> ailment_condition = {{"UNCONSCIOUS", "INFECTED"},
+                                                {"O2LEVEL", "PAIN"},
+                                                {"DEHYDRATED", "RESTLESS", "INFLAMED"},
+                                                {"HALLUCINATE", "RESTLESS"},
+                                                {"O2LEVEL", "UNCONSCIOUS"},
+                                                {"IINFLAMED", "UNCONSCIOUS"}};
 
     vector<pair<vector<string>, string>> ailment_condition_treatment = {
-        {{clause_variable_list[0], "HIGH"}, "ACE-INHIBITOR / ARB BLOCKERS"}, {{clause_variable_list[1], "COLLECTED"}, "DIURETICS / ALDOSTERONE ANTAGONISTS"}, {{clause_variable_list[2], "INFLAMED"}, "CORTICOSTEROIDS"}, {{clause_variable_list[3], "REDUCED"}, "ACE INHIBITOR / ANGIOTENSIN II RECEPTOR BLOCKERS"}, {{clause_variable_list[4], "NARROWED"}, "NITRATES"}, {{clause_variable_list[5], "ELEVATED"}, "STATIN"}, {{clause_variable_list[6], "CLOT"}, "CLOT PREVENTING DRUGS (CLOPIDOGREL, TICAGRELOR) OR ASPIRIN"}, {{clause_variable_list[7], "INCREASED"}, "VAGAL MANEUVER"}};
+        {{clause_variable_list[0], "UNCONSCIOUS"}, "Perform cardiopulmonary resuscitation (CPR) if necessary "},
+        {{clause_variable_list[1], "INFECTED"}, "Oral antibiotics are usually recommended for infection "},
+        {{clause_variable_list[2], "O2LEVEL"}, "IV fluids, Oxygen, Stomach pumping, Blood filtration "},
+        {{clause_variable_list[3], "PAIN"}, "Stomach pumping, Blood filtration"},
+        {{clause_variable_list[4], "DEHYDRATED"}, "Intravenous fluids (if severely dehydrated)"},
+        {{clause_variable_list[5], "RESTLESS"}, "Sedation (to keep calm)"},
+        {{clause_variable_list[6], "INFLAMED"}, "Potassium iodide, Prussian blue can be used "},
+        {{clause_variable_list[7], "HALLUCINATE"}, "Benzodiazepines may be used for panic attacks, hallucinations, and seizures "}};
 };

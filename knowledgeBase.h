@@ -10,11 +10,36 @@ class Knowledge_base {
    public:
     // all possible conclusions for our program
 
-    vector<string> conclusions = {"Heart Failure", "Cardiomyopathy", "Angina", "Coronary Aretry Disease", "Tachycardia", "Ventricular Tachycardia"};
+    vector<string> conclusions = {"Stingray venom Poisoning",
+                                  "Alcohol Poisoning",
+                                  "Venomous ticks Poisoning",
+                                  "Psilocybin mushroom Poisoning",
+                                  "Carbon monoxide Poisoning",
+                                  "Radiation Poisoning"};
 
     // variables_list is the list of all symptoms
 
-    vector<string> variables_list = {"Rapid/Irregular Heart Beats or Heart Palpitations", "Chest Pain", "Persistent Shortness of Breath", "Fatigue", "Dizziness", "Lightheadedness", "Weakness", "Unexplained Sweating", "Fainting", "Weight Gain", "Edema", "Swollen Stomach", "Confusion", "Chest Tightness", "Vomiting", "Restlessness", "Heart Attack", "Nausea", "Tightness in Neck", "Cardiac Arrest", "Lung Congestion"};
+    vector<string> variables_list = {"Nausea",
+                                     "Vomiting",
+                                     "Dizziness",
+                                     "Hallucinations",
+                                     "Blurred vision",
+                                     "Headache",
+                                     "Abdominal pain",
+                                     "Restlessness",
+                                     "Shortness of breath",
+                                     "Drowsiness",
+                                     "Weakness",
+                                     "Diarrhea",
+                                     "Confusion",
+                                     "Muscular paralysis",
+                                     "Jaw stiffness",
+                                     "Seizures",
+                                     "Loss of memory",
+                                     "Euphoria",
+                                     "Loss of sense of distance and size",
+                                     "Intense pain",
+                                     "Muscle cramps"};
 
     /*
  list of all possible symptoms combination that leads to a diagnosis
@@ -62,21 +87,21 @@ class Knowledge_base {
     // clauses for diseases, numerical value represents
     // index in the variables list
 
-    vector<int> heart_failure_clause = {0, 1, 3, 4, 6, 8, 9, 12, 20};
+    vector<int> stingray_venom_clause = {0, 1, 3, 4, 6, 8, 9, 12, 20};
 
-    vector<int> cardiomyopathy_clause = {0, 1, 2, 3, 5, 9, 10, 11};
+    vector<int> alcohol_clause = {0, 1, 2, 3, 5, 9, 10, 11};
 
-    vector<int> angina_clause = {1, 2, 3, 4, 5, 6, 7, 13, 14, 15};
+    vector<int> venomous_ticks_clause = {1, 2, 3, 4, 5, 6, 7, 13, 14, 15};
 
-    vector<int> coronary_clause = {0, 2, 3, 6, 7, 16, 17};
+    vector<int> mushroom_clause = {0, 2, 3, 6, 7, 16, 17};
 
-    vector<int> tachycardia_clause = {0, 1, 2, 4, 5};
+    vector<int> carbon_clause = {0, 1, 2, 4, 5};
 
-    vector<int> ventricular_tachycardia_clause = {0, 1, 2, 4, 5, 8, 18, 19};
+    vector<int> radiation_clause = {0, 1, 2, 4, 5, 8, 18, 19};
 
     //pushing all clauses in the clause index vector for easy retrieval later
 
-    vector<vector<int>> clause_index = {heart_failure_clause, cardiomyopathy_clause, angina_clause, coronary_clause, tachycardia_clause, ventricular_tachycardia_clause};
+    vector<vector<int>> clause_index = {stingray_venom_clause, alcohol_clause, venomous_ticks_clause, mushroom_clause, carbon_clause, radiation_clause};
 
     map<string, int> variable_initialized = variable_list_initializer(variables_list);
 
